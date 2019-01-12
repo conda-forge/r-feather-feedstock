@@ -1,4 +1,4 @@
-{% set version = '0.3.1' %}
+{% set version = '0.3.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,16 +7,14 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: feather_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/feather_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/feather/feather_{{ version }}.tar.gz
-  sha256: f1069bf920e9bc3da6bf43542a3a7ccc3142544d759945115ecade69dd5ccde0
+  sha256: 0686608a9fe404d1ef0dc9896d6474f0cf909ccda6af4c6af45ef10939b51b8d
 
 build:
   merge_build_host: True  # [win]
-  number: 1001
-  skip: true  # [win32]
+  number: 1000
   rpaths:
     - lib/R/lib/
     - lib/
@@ -62,9 +60,27 @@ about:
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+    - conda-forge/r
+    - philip-khor
+
+# Package: feather
+# Title: R Bindings to the Feather 'API'
+# Version: 0.3.2
+# Authors@R: c( person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre")), person("RStudio", role = "cph"), person("Feather developers", role = "ctb", comment = "Bundled feather library"), person("Google", role = "ctb", comment = "Bundled flatbuffers code"), person("LevelDB Authors", role = "ctb") )
+# Description: Read and write feather files, a lightweight binary columnar data store designed for maximum speed.
+# Encoding: UTF-8
+# License: Apache License 2.0
+# LazyData: true
+# URL: https://github.com/wesm/feather
+# BugReports: https://github.com/wesm/feather/issues
+# LinkingTo: Rcpp
+# Imports: Rcpp, tibble, hms
+# Suggests: testthat, dplyr
+# SystemRequirements: little-endian platform
+# RoxygenNote: 6.1.1
+# NeedsCompilation: yes
+# Packaged: 2019-01-07 14:30:33 UTC; hadley
+# Author: Hadley Wickham [aut, cre], RStudio [cph], Feather developers [ctb] (Bundled feather library), Google [ctb] (Bundled flatbuffers code), LevelDB Authors [ctb]
+# Maintainer: Hadley Wickham <hadley@rstudio.com>
+# Repository: CRAN
+# Date/Publication: 2019-01-07 21:20:03 UTC
