@@ -14,7 +14,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -55,6 +55,7 @@ test:
 about:
   home: https://github.com/wesm/feather
   license: Apache 2.0
+  license_file: LICENSE.txt
   summary: Read and write feather files, a lightweight binary columnar data store designed for
     maximum speed.
   license_family: APACHE
