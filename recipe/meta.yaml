@@ -1,4 +1,4 @@
-{% set version = "0.3.4" %}
+{% set version = "0.3.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/feather_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/feather/feather_{{ version }}.tar.gz
-  sha256: c38936bd25222b60a8cd7e07fab5ed7c69248b49dbda25659842cfbf3a1599ff
+  sha256: 50ff06d5e24d38b5d5d62f84582861bd353b82363e37623f95529b520504adbf
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
