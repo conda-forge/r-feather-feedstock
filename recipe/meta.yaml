@@ -1,4 +1,4 @@
-{% set version = "0.3.5" %}
+{% set version = "0.4.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/feather_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/feather/feather_{{ version }}.tar.gz
-  sha256: 50ff06d5e24d38b5d5d62f84582861bd353b82363e37623f95529b520504adbf
+  sha256: 427d80378b5acbb2aa096d9c4b5d61a1acb0dae38b8df29a2adde06fe13bee7f
 
 build:
-  number: 6
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -37,15 +37,18 @@ requirements:
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-arrow                      # [build_platform != target_platform]
     - r-rcpp                       # [build_platform != target_platform]
     - r-hms                        # [build_platform != target_platform]
     - r-tibble >=2.0.0             # [build_platform != target_platform]
   host:
+    - r-arrow
     - r-base
     - r-rcpp
     - r-hms
     - r-tibble >=2.0.0
   run:
+    - r-arrow
     - r-base
     - r-rcpp
     - r-hms
@@ -60,8 +63,7 @@ about:
   home: https://github.com/wesm/feather
   license: Apache 2.0
   license_file: LICENSE.txt
-  summary: Read and write feather files, a lightweight binary columnar data store designed for
-    maximum speed.
+  summary: Read and write feather files, a lightweight binary columnar data store designed for maximum speed.
 
 extra:
   recipe-maintainers:
